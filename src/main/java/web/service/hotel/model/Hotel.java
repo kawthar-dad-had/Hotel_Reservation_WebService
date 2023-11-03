@@ -6,17 +6,13 @@ import java.util.Map;
 public class Hotel {
     private String nom;
     private Adresse adresse;
-    private double prix;
     private int nombreEtoiles;
-    private int nombreLits;
     private Map<AgencePartenaire, Double> tarifsAgences;
 
-    public Hotel(String nom, Adresse adresse, double prix, int nombreEtoiles, int nombreLits) {
+    public Hotel(String nom, Adresse adresse, int nombreEtoiles) {
         this.nom = nom;
         this.adresse = adresse;
-        this.prix = prix;
         this.nombreEtoiles = nombreEtoiles;
-        this.nombreLits = nombreLits;
         setTarifsAgences(new HashMap<>());
     }
 
@@ -38,13 +34,6 @@ public class Hotel {
 		this.adresse = adresse;
 	}
 
-	public double getPrix() {
-		return prix;
-	}
-
-	public void setPrix(double prix) {
-		this.prix = prix;
-	}
 
 	public int getNombreEtoiles() {
 		return nombreEtoiles;
@@ -53,15 +42,6 @@ public class Hotel {
 	public void setNombreEtoiles(int nombreEtoiles) {
 		this.nombreEtoiles = nombreEtoiles;
 	}
-
-	public int getNombreLits() {
-		return nombreLits;
-	}
-
-	public void setNombreLits(int nombreLits) {
-		this.nombreLits = nombreLits;
-	}
-
 
 
 	public Map<AgencePartenaire, Double> getTarifsAgences() {
@@ -75,6 +55,6 @@ public class Hotel {
 	}
 
     public void ajouterTarifAgence(AgencePartenaire agence) {
-        tarifsAgences.put(agence, this.prix*agence.getTarif());
+        tarifsAgences.put(agence, agence.getTarif());
     }
 }

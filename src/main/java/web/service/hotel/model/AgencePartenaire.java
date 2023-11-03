@@ -3,10 +3,12 @@ package web.service.hotel.model;
 public class AgencePartenaire {
 
     private String nom;
+    private String motDePasse;
     private double tarif;
 
-    public AgencePartenaire(String nom, double tarif) {
+    public AgencePartenaire(String nom,String motDePasse, double tarif) {
         this.setNom(nom);
+        this.setMotDePasse(motDePasse);
         this.setTarif(tarif);
     }
 
@@ -24,5 +26,13 @@ public class AgencePartenaire {
 
 	public void setTarif(double tarif) {
 		this.tarif = tarif;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
 }

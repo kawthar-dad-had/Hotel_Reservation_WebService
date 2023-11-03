@@ -1,21 +1,38 @@
 package web.service.hotel.server;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.ws.Endpoint;
+
 import web.service.hotel.model.Adresse;
 import web.service.hotel.model.AgencePartenaire;
 import web.service.hotel.model.Chambre;
 import web.service.hotel.model.Client;
 import web.service.hotel.model.Hotel;
 import web.service.hotel.model.Reservation;
+import web.service.hotel.service.ServiceDisponibiliteImpl;
 
 public class Main {
 
 	public static void main(String[] args) {
-        Client client1 = new Client("John", "Doe", "1234-5678-9012-3456");
+		Endpoint.publish("http://localhost:8080/hotelwebservice", new ServiceDisponibiliteImpl());
+		System.err.println("Server Ready");
+        Client client1 = new Client("John", "Doe", "1234-5678-9012-3456", 0, null);
         Adresse adresse1 = new Adresse("France", "Paris", "Rue de Rivoli", "123", "", "48.8566° N, 2.3522° E");
-        Hotel hotel1 = new Hotel("Hôtel Parisien", adresse1, 150.0, 4, 2);
-        Chambre chambre1 = new Chambre("Chambre double");
-        AgencePartenaire agence1 = new AgencePartenaire("Agence A",0.95);
-        AgencePartenaire agence2 = new AgencePartenaire("Agence B",0.5);
+        Hotel hotel1 = new Hotel("Hôtel Parisien", adresse1, 4);
+        
+        Map<Date, Date> disponibilite = new HashMap<>();
+
+        // Ajoutez une période de disponibilité
+        Date debut = new Date();  // Date de début
+        Date fin = new Date();    // Date de fin
+        disponibilite.put(debut, fin);
+        
+        Chambre chambre1 = new Chambre("Chambre double",2,100.0,hotel1);
+        AgencePartenaire agence1 = new AgencePartenaire("Agence A","A1",0.95);
+        AgencePartenaire agence2 = new AgencePartenaire("Agence B","A2",0.5);
 
         // Associez des tarifs d'agences aux hôtels
         hotel1.ajouterTarifAgence(agence1);

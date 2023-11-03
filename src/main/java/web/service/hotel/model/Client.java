@@ -3,12 +3,16 @@ package web.service.hotel.model;
 public class Client {
     private String nom;
     private String prenom;
-    private String carteDeCredit;
+    private String numeroCarte;
+    private int cvv;
+    private String dateExpiration;
 
-    public Client(String nom, String prenom, String carteDeCredit) {
+    public Client(String nom, String prenom, String numeroCarte , int cvv , String dateExpiration) {
         this.setNom(nom);
         this.setPrenom(prenom);
-        this.setCarteDeCredit(carteDeCredit);
+        this.setNumeroCarte(numeroCarte);
+        this.setCvv(cvv);
+        this.setDateExpiration(dateExpiration);
     }
 
 	public String getNom() {
@@ -27,12 +31,29 @@ public class Client {
 		this.prenom = prenom;
 	}
 
-	public String getCarteDeCredit() {
-		return carteDeCredit;
+
+	public String getNumeroCarte() {
+		return numeroCarte;
 	}
 
-	public void setCarteDeCredit(String carteDeCredit) {
-		this.carteDeCredit = carteDeCredit;
+	public void setNumeroCarte(String numeroCarte) {
+		this.numeroCarte = numeroCarte;
+	}
+
+	public int getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(int cvv) {
+		this.cvv = cvv;
+	}
+
+	public String getDateExpiration() {
+		return dateExpiration;
+	}
+
+	public void setDateExpiration(String dateExpiration) {
+		this.dateExpiration = dateExpiration;
 	}
 
 }
