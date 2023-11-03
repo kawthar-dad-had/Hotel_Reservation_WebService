@@ -6,7 +6,8 @@ public class Chambre {
     private int nombreLits;
     private double prix;
     private Hotel hotel;
-
+    private String imageUrl;
+    
     public Chambre(String typeChambre , int nombreLits , double prix , Hotel hotel ) {
         this.setTypeChambre(typeChambre);
         this.setNombreLits(nombreLits);
@@ -45,6 +46,16 @@ public class Chambre {
 
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 

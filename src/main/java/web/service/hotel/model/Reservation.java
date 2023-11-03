@@ -8,8 +8,9 @@ public class Reservation {
     private Hotel hotel;
     private Chambre chambre;
     private AgencePartenaire agencePartenaire;
+    private double prix;
 
-    public Reservation(String dateArrivee, String dateDepart, int nombrePersonnes, Client client, Hotel hotel, Chambre chambre, AgencePartenaire agencePartenaire) {
+    public Reservation(String dateArrivee, String dateDepart, int nombrePersonnes, Client client, Hotel hotel, Chambre chambre, AgencePartenaire agencePartenaire , double prix) {
         this.dateArrivee = dateArrivee;
         this.dateDepart = dateDepart;
         this.nombrePersonnes = nombrePersonnes;
@@ -17,6 +18,7 @@ public class Reservation {
         this.hotel = hotel;
         this.chambre = chambre;
         this.setAgencePartenaire(agencePartenaire);
+        this.setPrix(prix);
     }
 
 	public String getDateArrivee() {
@@ -73,6 +75,14 @@ public class Reservation {
 
 	public void setAgencePartenaire(AgencePartenaire agencePartenaire) {
 		this.agencePartenaire = agencePartenaire;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
 	}
 
 }
