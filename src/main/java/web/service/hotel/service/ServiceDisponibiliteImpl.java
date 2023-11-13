@@ -91,9 +91,6 @@ public class ServiceDisponibiliteImpl implements ServiceDisponibilite {
         } catch (Exception e) {
             e.printStackTrace();
             // Handle exceptions here
-        } finally {
-            // Close the database connection when done
-            dbConnection.closeConnection();
         }
 		return offres;
 	}	

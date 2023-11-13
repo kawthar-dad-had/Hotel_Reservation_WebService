@@ -68,9 +68,6 @@ public class ServiceReservationImpl implements ServiceReservation {
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle exceptions here
-        } finally {
-            // Close the database connection when done
-            dbConnection.closeConnection();
         }
 		return message;
 	}
